@@ -12,7 +12,6 @@ COPY frontend/package.json frontend/package-lock.json /app/
 
 # Clear npm cache and install dependencies
 RUN npm cache clean --force
-RUN npm install --legacy-peer-deps 
 RUN npm install --unsafe-perm
 
 # Copy the Angular frontend code into the container
