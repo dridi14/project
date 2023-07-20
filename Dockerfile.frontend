@@ -7,9 +7,12 @@ WORKDIR /app
 # Install Angular CLI
 RUN npm install -g @angular/cli
 
-# Install dependencies
+# Copy package.json and package-lock.json to the working directory
 COPY frontend/package.json frontend/package-lock.json /app/
-RUN npm install --force
+
+# Clear npm cache and install dependencies
+RUN npm cache clean --force
+RUN npm install --legacy-peer-deps
 
 # Copy the Angular frontend code into the container
 COPY frontend/ /app/
