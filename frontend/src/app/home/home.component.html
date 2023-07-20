@@ -1,0 +1,16 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-lg-3" *ngFor="let location of locations">
+      <div class="card my-4" (click)="viewSensors(location.name)">
+        <div class="card-header">
+          {{ getRoomName(location.id) }}
+          <span class="status-dot" [ngStyle]="{'background-color': getRoomStatus(location.name)}"></span>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Number of Sensors: {{ location.sensorCount }}</p>
+          <p class="card-text">Sensors: {{ location.sensorTypes }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

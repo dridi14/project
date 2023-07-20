@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - MQTT_USERNAME='groupe1'
+      - MQTT_PASSWORD='T18oCz84diyh'
+    depends_on:
+      - frontend
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./frontend:/app

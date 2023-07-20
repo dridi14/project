@@ -1,0 +1,28 @@
+<!-- automations.component.html -->
+<div class="container">
+  <h2>Automation List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Room</th>
+        <th>Sensor</th>
+        <th>Command</th>
+        <th>Condition</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let automation of automations">
+        <td>{{ automation.sensor.room.id }}</td>
+        <td>{{ automation.sensor.sensor_type }}</td>
+        <td>{{ automation.command }}</td>
+        <td>{{ automation.condition }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteAutomation(automation)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="btn btn-primary" (click)="addAutomation()">Add Automation</button>
+</div>

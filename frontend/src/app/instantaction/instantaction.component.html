@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="automationForm" (ngSubmit)="submitForm()">
+          <div class="form-group mb-3">
+            <label for="room">Select Room</label>
+            <select class="form-control mb-3" id="room" formControlName="room" (change)="onRoomSelectionChange($event.target)">
+              <option value="">None</option>
+              <option *ngFor="let room of rooms" [value]="room?.id">{{ room?.id }}</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="automationForm.get('room')?.touched && automationForm.get('room')?.errors?.required">
+              Room selection is required.
+            </div>
+          </div>
+  
+          <div class="form-group mb-3">
+            <label for="sensor">Select Sensor</label>
+            <select class="form-control mb-3" id="sensor" formControlName="sensor_id">
+              <option value="">None</option>
+              <option *ngFor="let sensor of sensors" [value]="sensor.sensor_id">{{ sensor.sensor_type }}</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="automationForm.get('sensor')?.touched && automationForm.get('sensor')?.errors?.required">
+              Sensor selection is required.
+            </div>
+          </div>
+  
+          <div class="form-group mb-3">
+            <label for="command">Select Command</label>
+            <select class="form-control mb-3" id="command" formControlName="command">
+              <option value="">None</option>
+              <option *ngFor="let command of commands" [value]="command.id">{{ command.name }}</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="automationForm.get('command')?.touched && automationForm.get('command')?.errors?.required">
+              Command selection is required.
+            </div>
+          </div>
+  
+  
+          <div class="button-container mb-3">
+            <button class="btn btn-outline-primary" type="submit">Create Automation</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

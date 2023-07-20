@@ -1,0 +1,21 @@
+# Use the official Node.js image as a base image
+FROM node:14
+
+# Set the working directory
+WORKDIR /app
+
+# Install Angular CLI
+RUN npm install -g @angular/cli
+
+# Install dependencies
+COPY frontend/package.json frontend/package-lock.json /app/
+RUN npm install
+
+# Copy the Angular frontend code into the container
+COPY frontend/ /app/
+
+# Expose the Angular development server port
+EXPOSE 4200
+
+# Start the Angular development server
+CMD ["ng", "serve", "--host", "0.0.0.0"]
