@@ -97,15 +97,15 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 if os.environ.get('DOCKER_CONTAINER'):
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydatabase',
-        'USER': 'mydatabaseuser',
-        'PASSWORD': 'mypassword',
-        'HOST': 'db',
-        'PORT': '5432',
-      }
-  }
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'your_database_name',
+            'USER': 'your_username',
+            'PASSWORD': 'your_password',
+            'HOST': 'host.docker.internal',
+            'PORT': '5432',
+        }
+    }
 
 
 # Password validation
