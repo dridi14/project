@@ -98,10 +98,10 @@ if os.environ.get('DOCKER_CONTAINER'):
     DATABASES = {
         'default': {
           'ENGINE': 'django.db.backends.postgresql',
-          'NAME': 'mydatabase',
-          'USER': 'mydatabaseuser',
+          'NAME': 'postgres',
+          'USER': 'postgres',
           'PASSWORD': 'mypassword',
-          'HOST': 'db',
+          'HOST': 'db.jkdaqmrfrwklipkguxjx.supabase.co',
           'PORT': '5432',
         }
     }    
