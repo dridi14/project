@@ -8,6 +8,10 @@ WORKDIR /app
 COPY backend/requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
+# makemigrations and migrate
+RUN python manage.py makemigrations
+RUN python manage.py migrate
+
 # Copy the Django backend code into the container
 COPY backend/ /app/
 
