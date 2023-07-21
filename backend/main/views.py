@@ -82,7 +82,7 @@ class RoomSensorDataView(APIView):
         if interval is None or interval == '':
             sensor_data = sensor.sensordata_set.all().order_by('-created_at')[:50]
         elif interval == 'hour':
-            sensor_data = sensor.sensordata_set.all().order_by('-created_at')[:40]
+            sensor_data = sensor.sensordata_set.all().order_by('-created_at')[:20]
         elif interval == 'day':
             end_date = timezone.now()
             start_date = end_date - timezone.timedelta(days=1)
