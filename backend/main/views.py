@@ -79,10 +79,10 @@ class RoomSensorDataView(APIView):
         room = get_object_or_404(Room, id=room_id)
         sensor = get_object_or_404(Sensor, sensor_id=sensor_id, room=room, id=id)
 
-        if interval is None:
+        if interval is None or interval == '':
             sensor_data = sensor.sensordata_set.all().order_by('-created_at')[:50]
         elif interval == 'hour':
-            sensor_data = sensor.sensordata_set.all().order_by('-created_at')[:20]
+            sensor_data = sensor.sensordata_set.all().order_by('-created_at')[:40]
         elif interval == 'day':
             end_date = timezone.now()
             start_date = end_date - timezone.timedelta(days=1)
