@@ -11,8 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the Django backend code into the container
 COPY backend/ /app/
 
-# Run the "runmqtt" command with Django's manage.py script
-CMD ["python", "manage.py", "runmqtt"]  # Updated this line
+# Start Django's development server and the MQTT server (runmqtt) in the background
+CMD bash -c "python manage.py runmqtt & python manage.py runserver 0.0.0.0:8000"
 
 # Expose the Django development server port
 EXPOSE 8000
