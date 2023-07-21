@@ -16,7 +16,7 @@ export class DataFetchService {
     { id: 207, name: 'LIGHT_ON', sensor_id: 4 },
     { id: 208, name: 'LIGHT_OFF', sensor_id: 4 },
   ]
-  private baseUrl = 'http://nimportequoi.w2-groupe16.hetic-projects.arcplex.tech:8090/api';
+  private baseUrl = 'http://localhost:4200/api';
 
   constructor(private http: HttpClient) { }
 
