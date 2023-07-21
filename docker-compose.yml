@@ -1,5 +1,11 @@
 version: '3'
 services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=wirepas
+      - POSTGRES_USER=wirepas
+      - POSTGRES_PASSWORD=admin
   backend:
     build:
       context: .
@@ -11,8 +17,10 @@ services:
     environment:
       - MQTT_USERNAME='groupe1'
       - MQTT_PASSWORD='T18oCz84diyh'
+      - DATABASE_URL=postgres://dbuser:dbpass@db/dbname
     depends_on:
       - frontend
+      - db
   frontend:
     build:
       context: .
