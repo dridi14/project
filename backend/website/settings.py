@@ -94,18 +94,16 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if os.environ.get('DOCKER_CONTAINER'):
-    DATABASES = {
-        'default': {
-          'ENGINE': 'django.db.backends.postgresql',
-          'NAME': 'postgres',
-          'USER': 'postgres',
-          'PASSWORD': 'mypassword',
-          'HOST': 'db.jkdaqmrfrwklipkguxjx.supabase.co',
-          'PORT': '5432',
-        }
+DATABASES = {
+    'default': {
+      'ENGINE': 'django.db.backends.postgresql',
+      'NAME': 'postgres',
+      'USER': 'postgres',
+      'PASSWORD': 'A2b&oinjd9011DDD223&&é',
+      'HOST': 'db.jkdaqmrfrwklipkguxjx.supabase.co',
+      'PORT': '5432',
     }    
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
