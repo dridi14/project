@@ -95,7 +95,8 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
+if os.environ.get('DOCKER_CONTAINER'):
+    DATABASES = {
         'default': {
           'ENGINE': 'django.db.backends.postgresql_psycopg2',
           'NAME': 'mydatabase',
@@ -104,7 +105,7 @@ DATABASES = {
           'HOST': 'db',
           'PORT': '5432',
         }
-}    
+    }    
 
 
 # Password validation
