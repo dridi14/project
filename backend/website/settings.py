@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'website.wsgi.application'
 if os.environ.get('DOCKER_CONTAINER'):
     DATABASES = {
         'default': {
-          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+          'ENGINE': 'django.db.backends.postgresql',
           'NAME': 'mydatabase',
           'USER': 'mydatabaseuser',
           'PASSWORD': 'mypassword',
