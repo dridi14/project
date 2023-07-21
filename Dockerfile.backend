@@ -14,8 +14,13 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 # Set environment variable to run Django in production mode (optional)
 ENV DJANGO_ENV=production
 
+# Copy print_db.py script
+COPY print_db.py /app/print_db.py
+
+# Print DATABASES settings
+RUN python /app/print_db.py
+
 # Make migrations and migrate the database
-RUN python -c "from django.conf import settings; print(settings.DATABASES)"
 RUN python /app/manage.py makemigrations
 RUN python /app/manage.py migrate
 
