@@ -17,7 +17,7 @@ services:
     environment:
       - MQTT_USERNAME='groupe1'
       - MQTT_PASSWORD='T18oCz84diyh'
-      - DATABASE_URL=postgres://wirepass:admin@localhost:5432/wirepas
+      - DATABASE_URL=postgres://mydatabase:mypassword@localhost:5432/mydatabaseuser
     depends_on:
       - frontend
       - db
