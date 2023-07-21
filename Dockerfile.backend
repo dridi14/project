@@ -15,6 +15,7 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 ENV DJANGO_ENV=production
 
 # Make migrations and migrate the database
+RUN python -c "from django.conf import settings; print(settings.DATABASES)"
 RUN python /app/manage.py makemigrations
 RUN python /app/manage.py migrate
 
