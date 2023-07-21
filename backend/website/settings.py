@@ -100,7 +100,7 @@ DATABASES = {
       'NAME': 'postgres',
       'USER': 'postgres',
       'PASSWORD': 'A2b&oinjd9011DDD223&&é',
-      'HOST': 'db.jkdaqmrfrwklipkguxjx.supabase.co',
+      'HOST': 'db.imjrsdapbuxqzvyvqwci.supabase.co',
       'PORT': '5432',
     }    
 }
