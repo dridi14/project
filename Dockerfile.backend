@@ -15,12 +15,12 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 ENV DJANGO_ENV=production
 
 RUN python -c "import os; \
-               os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'my_project.settings'); \
+               os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'website.settings'); \
                import django; \
                django.setup(); \
                from django.conf import settings; \
                print(settings.DATABASES)"
-               
+
 # Make migrations and migrate the database
 RUN python /app/manage.py makemigrations
 RUN python /app/manage.py migrate
