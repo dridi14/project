@@ -7,11 +7,12 @@ WORKDIR /app
 # Copy the Django backend code into the container
 COPY backend/ /app/
 
+# Install PostgreSQL client library and dependencies
+RUN apt-get update && apt-get install -y libpq-dev
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
 # Set environment variable to run Django in production mode (optional)
 ENV DJANGO_ENV=production
-
-# Install dependencies
-RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # Make migrations and migrate the database
 RUN python /app/manage.py makemigrations
