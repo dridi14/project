@@ -99,11 +99,10 @@ DATABASES = {
         'NAME': 'wirepas',
         'USER': 'wirepass',
         'PASSWORD': 'admin',
-        'HOST': 'localhost',
+        'HOST': 'my_postgres_db_2',  # Use the PostgreSQL container's name
         'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
